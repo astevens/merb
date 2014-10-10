@@ -29,9 +29,9 @@ Gem::Specification.new do |gem|
   ] & `git ls-files -z`.split("\0")
 
   # Runtime dependencies
-  gem.add_dependency 'activesupport', '~> 3.0'
-  gem.add_dependency 'i18n',          '>= 0.5'
-  gem.add_dependency 'erubis',        '>= 2.6.2'
+  gem.add_dependency 'activesupport', '~> 4.1'
+  gem.add_dependency 'i18n',          '>= 0.6'
+  gem.add_dependency 'erubis',        '>= 2.7'
   gem.add_dependency 'rake'
   gem.add_dependency 'rack'
   gem.add_dependency 'mime-types', '>= 1.16' # supports ruby-1.9
@@ -40,7 +40,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec',  '>= 2.5'
   gem.add_development_dependency 'webrat', '>= 0.7'
   gem.add_development_dependency 'memcache-client', '>= 1.8.5' # for session specs
-  gem.add_development_dependency 'yard', '>= 0.6'
+  gem.add_development_dependency 'yard', '>= 0.8'
 
   # Executable files
   gem.executables  = 'merb'

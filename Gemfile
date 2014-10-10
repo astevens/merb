@@ -1,11 +1,11 @@
 source "http://rubygems.org"
 
-gem 'activesupport', '~> 3.0'
-gem 'i18n', '>= 0.5'
-gem 'erubis', '>= 2.6.2'
+gem 'activesupport', '~> 4.1'
+gem 'i18n', '>= 0.6'
+gem 'erubis', '>= 2.7'
 gem 'rake'
 gem 'rack'
-gem 'mime-types', '>= 1.16'
+gem 'mime-types', '~> 2.4'
 gem 'json'
 gem 'hpricot'
 
@@ -20,9 +20,12 @@ gem 'rack'
 # and reportedly JRuby:
 #  https://github.com/fauna/memcached/issues/49
 # -- 2011-05-25
-gem 'memcached', '= 1.2.3'
+gem 'memcached', '~> 1.8'
 
-gem 'rspec',  '>= 2.5'
-gem 'webrat', '>= 0.7'
+gem 'rspec',  '~> 2.5'
+gem 'webrat', '~> 0.7'
 gem 'memcache-client', '>= 1.8.5'
-gem 'yard', '>= 0.6'
+gem 'yard', '~> 0.8'
+
+gem 'pry'
+gem 'pry-byebug'
