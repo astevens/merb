@@ -112,7 +112,7 @@ module Merb
     def self.included(base)
       base.extend(ClassMethods)
       base.class_eval do
-        extlib_inheritable_accessor :class_provided_formats
+        class_inheritable_accessor :class_provided_formats
         self.class_provided_formats = []
       end
       base.reset_provides
