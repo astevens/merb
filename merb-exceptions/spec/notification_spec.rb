@@ -17,7 +17,7 @@ describe MerbExceptions::Notification do
   describe ".deliver!" do
     before :each do
       @notification = Notification.new(mock_details)
-      @notification.stub!('deliver_web_hooks!')
+      @notification.stub('deliver_web_hooks!')
     end
 
     after :each do
@@ -39,7 +39,7 @@ describe MerbExceptions::Notification do
   describe ".deliver_web_hooks!" do
     before :each do
       @notification = Notification.new(mock_details)
-      @notification.stub!(:post_hook)
+      @notification.stub(:post_hook)
     end
 
     it "should call post_hook for each url" do
