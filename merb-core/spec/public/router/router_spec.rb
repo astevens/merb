@@ -7,7 +7,7 @@ describe Merb::Router do
     it "should be able to compile an empty route table" do
       lambda do
         Merb::Router.prepare { }
-      end.should_not raise_error(SyntaxError)
+      end.should_not raise_error
     end
     
     it "should evaluate the prepare block in context an object that provides builder methods" do

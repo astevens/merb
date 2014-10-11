@@ -117,7 +117,7 @@ module Merb::Test::MultipartRequestHelper
 
   describe Post, '#push_params(params) param parsing' do
     before(:each) do
-      @fake_return_param = mock('fake return_param')
+      @fake_return_param = double('fake return_param')
     end
 
     it "should create Param from params when param doesn't respond to read" do
@@ -127,7 +127,7 @@ module Merb::Test::MultipartRequestHelper
     end
 
     it "should create FileParam from params when param does response to read" do
-      file_param = mock('file param')
+      file_param = double('file param')
       file_param.should_receive(:read).and_return('file contents')
       file_param.should_receive(:path).and_return('file.txt')
       params = { 'file' => file_param }
@@ -138,7 +138,7 @@ module Merb::Test::MultipartRequestHelper
 
   describe Post, '#to_multipart' do
     it "should create a multipart request from the params" do
-      file_param = mock('file param')
+      file_param = double('file param')
       file_param.should_receive(:read).and_return('file contents')
       file_param.should_receive(:path).and_return('file.txt')
       params = { 'file' => file_param, 'normal' => 'normal_param' }

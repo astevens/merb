@@ -217,7 +217,7 @@ describe Merb::Request, "#method" do
 
   it "should not try to parse the request body as JSON on GET" do
     request = fake_request({:request_method => "GET", :content_type => "application/json"}, :req => "")
-    lambda { request.params }.should_not raise_error(JSON::ParserError)
+    lambda { request.params }.should_not raise_error
     request.params.should == {}
   end
   

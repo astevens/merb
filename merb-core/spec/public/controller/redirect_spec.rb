@@ -78,6 +78,6 @@ describe Merb::Controller, " redirects" do
     message = message.reverse
     lambda do
       @controller = dispatch_to(Merb::Test::Fixtures::Controllers::SetsMessage, :index, {:_message => message})
-    end.should_not raise_error(TypeError)
+    end.should_not raise_error
   end
 end
