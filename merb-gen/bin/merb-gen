@@ -49,7 +49,7 @@ $shell = Thor::Base.shell.new
 
 # find other gems with Generator files
 begin
-  Gem.source_index.latest_specs(true).map(&:full_gem_path).inject([]) do |files, gem_path|
+  Gem::Specification.latest_specs(true).map(&:full_gem_path).inject([]) do |files, gem_path|
     search_path = File.join(gem_path, GENERATOR_FILENAME)
 
     result_string = $shell.set_color('No', :red)
