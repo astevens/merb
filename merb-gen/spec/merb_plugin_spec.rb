@@ -16,7 +16,7 @@ describe Merb::Generators::Dev::Plugin do
       it_should_generate
 
       it 'should not create a "bin" directory' do
-        File.exist?(app_path('bin')).should be_false
+        File.exist?(app_path('bin')).should be_falsey
       end
 
       it "should create a number of views"

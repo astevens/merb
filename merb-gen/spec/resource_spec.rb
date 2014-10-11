@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Merb::Generators::Resource do
 
   #FIXME
-  pending "Specs need to be fixed" do
+  skip "Specs need to be fixed" do
     before do
       @generator = create_generator(Merb::Generators::Resource, ['Project', {:name => :string }])
     end

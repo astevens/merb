@@ -29,7 +29,7 @@ describe Merb::Generators::App::Core do
       it "should create a number of views"
 
       it "should create an empty lib/tasks directory" do
-        File.directory?(app_path('lib/tasks')).should be_true
+        File.directory?(app_path('lib/tasks')).should be_truthy
       end
     end
 

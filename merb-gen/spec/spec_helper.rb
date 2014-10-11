@@ -119,7 +119,7 @@ module Merb
       def it_should_create(*files)
         files.each do |fname|
           it "should create #{fname}" do
-            File.exist?(app_path(fname)).should be_true
+            File.exist?(app_path(fname)).should be_truthy
           end
         end
       end
