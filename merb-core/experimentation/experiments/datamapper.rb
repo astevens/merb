@@ -60,7 +60,7 @@ Item.first.category
 #     Parent.validators.contexts[:default].select do |obj|
 #       obj.field_name == :name
 #     end.any? {|v| v.is_a?(DataMapper::Validate::RequiredFieldValidator)}.
-#       should be_falsey
+#       should be_falseyy
 #   end
 # end
 # 

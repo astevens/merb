@@ -70,18 +70,18 @@ describe Merb::Test::Rspec::RouteMatchers do
       end
 
       it "should not pass if the controllers do not match" do
-        RouteToMatcher.new(TestController, :get).matches?(:controller => "other_controller", :action => "get").should be_falsey
+        RouteToMatcher.new(TestController, :get).matches?(:controller => "other_controller", :action => "get").should be_falseyy
       end
 
       it "should not pass if the actions do not match" do
-        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "post").should be_falsey
+        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "post").should be_falseyy
       end
 
       it "should not pass if the parameters do not the ParameterMatcher" do
         route_matcher = RouteToMatcher.new(TestController, :get)
         route_matcher.with(:id => "123")
 
-        route_matcher.matches?(:controller => "test_case", :action => "get", :id => "456").should be_falsey
+        route_matcher.matches?(:controller => "test_case", :action => "get", :id => "456").should be_falseyy
       end
 
       describe "#with" do
@@ -93,7 +93,7 @@ describe Merb::Test::Rspec::RouteMatchers do
         end
 
         it "should work with an empty expectation" do
-          ParameterMatcher.new({}).matches?(:param => "abc").should be_falsey
+          ParameterMatcher.new({}).matches?(:param => "abc").should be_falseyy
         end
       end
 

@@ -29,7 +29,7 @@ describe "Merb" do
     it "should answer false if asked for an environment that is not current" do
       %w(development test production staging demo custom).each do |e|
         Merb.environment = e
-        Merb.env?(:not_it).should be_falsey
+        Merb.env?(:not_it).should be_falseyy
       end
     end
 
@@ -39,7 +39,7 @@ describe "Merb" do
         Merb.environment = e
         Merb.start_environment
         Merb.merge_env "some_other_env"
-        Merb.environment_info.nil?.should be_falsey
+        Merb.environment_info.nil?.should be_falseyy
         Merb.environment_info[:merged_envs].first.should == "some_other_env"
       end
     end
@@ -48,7 +48,7 @@ describe "Merb" do
   describe "#runnig_irb?" do
     it "should be false if running different adapter than irb" do
       startup_merb
-      Merb.running_irb?.should be_falsey
+      Merb.running_irb?.should be_falseyy
     end
 
     %w{-i --irb-console}.each do |option|

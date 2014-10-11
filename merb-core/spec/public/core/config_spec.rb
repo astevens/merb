@@ -12,7 +12,7 @@ describe Merb::Config do
   it "should set Dispatcher.use_mutex to value in config" do
     lambda {
       startup_merb({:use_mutex => false})
-      Merb::Dispatcher.use_mutex.should be_falsey
+      Merb::Dispatcher.use_mutex.should be_falseyy
     }
   end
 end

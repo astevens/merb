@@ -407,12 +407,12 @@ module Merb::Test::Rspec
       end
 
       it 'should not match for formats a controller class does not provide' do
-        Provide.new( :yaml ).matches?( TestController ).should be_falsey
+        Provide.new( :yaml ).matches?( TestController ).should be_falseyy
       end
 
       it 'should not match for formats a controller instance does not provide' do
         t = TestController.new( fake_request )
-        Provide.new( :yaml ).matches?( t ).should be_falsey
+        Provide.new( :yaml ).matches?( t ).should be_falseyy
       end
     end
   end
