@@ -83,14 +83,14 @@ end
 describe Merb::Controller, "before/after dispatch callbacks" do
   it "are used for internal purposes" do
     controller = dispatch_to(Controllers::DispatchCallbacks, :index)
-    controller.called_before.should be_true
-    controller.called_after.should be_true
+    controller.called_before.should be_truthy
+    controller.called_after.should be_truthy
   end
 
   it 'has access to action name' do
     controller = dispatch_to(Controllers::DispatchCallbacks, :index)
-    controller.called_before.should be_true
-    controller.called_after.should be_true
+    controller.called_before.should be_truthy
+    controller.called_after.should be_truthy
     controller.observed_action.should == 'index'
   end
 end

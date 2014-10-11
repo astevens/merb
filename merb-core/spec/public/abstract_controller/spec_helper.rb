@@ -1,5 +1,6 @@
 __DIR__ = File.dirname(__FILE__)
 require File.expand_path(File.join(__DIR__, "..", "..", "spec_helper"))
+require 'pry'
 
 require File.expand_path(File.join(__DIR__, "controllers", "filters"))
 require File.expand_path(File.join(__DIR__, "controllers", "cousins"))

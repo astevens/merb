@@ -93,41 +93,41 @@ module Merb::Test::Rspec
       end
       
       it "should match a 301 'Moved Permanently' redirect code" do
-        BeRedirect.new.matches?(301).should be_true
+        BeRedirect.new.matches?(301).should be_truthy
       end
       
       it "should match a 302 'Found' redirect code" do
-        BeRedirect.new.matches?(302).should be_true
+        BeRedirect.new.matches?(302).should be_truthy
       end
       
       it "should match a 303 'See Other' redirect code" do
-        BeRedirect.new.matches?(303).should be_true
+        BeRedirect.new.matches?(303).should be_truthy
       end
       
       it "should match a 304 'Not Modified' redirect code" do
-        BeRedirect.new.matches?(304).should be_true
+        BeRedirect.new.matches?(304).should be_truthy
       end
       
       it "should match a 307 'Temporary Redirect' redirect code" do
-        BeRedirect.new.matches?(307).should be_true
+        BeRedirect.new.matches?(307).should be_truthy
       end
       
       it "should match a target with a valid redirect code" do
         @target.status = 301
         
-        BeRedirect.new.matches?(@target).should be_true
+        BeRedirect.new.matches?(@target).should be_truthy
       end
       
       it "should not match a target with an unused redirect code" do
         @target.status = 399
         
-        BeRedirect.new.matches?(@target).should_not be_true
+        BeRedirect.new.matches?(@target).should_not be_truthy
       end
       
       it "should not match a target with a non redirect code" do
         @target.status = 200
         
-        BeRedirect.new.matches?(@target).should_not be_true
+        BeRedirect.new.matches?(@target).should_not be_truthy
       end
       
       describe "#failure_message" do
@@ -139,8 +139,8 @@ module Merb::Test::Rspec
         
         it "should be 'expected Foo#bar to redirect' when the target's controller is Foo and action is bar" do
           matcher = BeRedirect.new
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           matcher.matches?(@target)
           matcher.failure_message.should == "expected Foo#bar to redirect"
         end
@@ -155,8 +155,8 @@ module Merb::Test::Rspec
         
         it "should be 'expected Foo#bar to redirect' when the target's controller is Foo and action is bar" do
           matcher = BeRedirect.new
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           matcher.matches?(@target)
           matcher.negative_failure_message.should == "expected Foo#bar not to redirect"
         end
@@ -194,8 +194,8 @@ module Merb::Test::Rspec
            "<http://expected.com/>, but was <http://target.com/>' " \
            "when the expected url is http://expected.com/ and the " \
            "target url is http://target.com/" do
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           @target.status = 301
           @target.headers['Location'] = "http://target.com/"
           
@@ -207,8 +207,8 @@ module Merb::Test::Rspec
         
         it "should be 'expected Foo#bar to redirect, but there was " \
            "no redirection' when the target is not redirected" do
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           @target.status = 200
           @target.headers['Location'] = "http://target.com/"
           
@@ -221,8 +221,8 @@ module Merb::Test::Rspec
       describe "#negative_failure_message" do
         it "should be 'expected Foo#bar not to redirect to " \
            "<http://expected.com/>, but it did anyways" do
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           @target.status = 302
           @target.headers['Location'] = "http://expected.com/"
           
@@ -285,8 +285,8 @@ module Merb::Test::Rspec
         end
         
         it "should be 'expected Foo#bar to be successful but was 404' when the target is controller-ish" do
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           @target.status = 404
           
           lambda { @target.should be_successful }.
@@ -304,8 +304,8 @@ module Merb::Test::Rspec
         end
         
         it "should be 'expected Foo#bar not to be successful but it was 200' when the target is controller-ish" do
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           @target.status = 200
           
           lambda { @target.should_not be_successful }.
@@ -362,8 +362,8 @@ module Merb::Test::Rspec
         end
         
         it "should be 'expected Foo#bar to be successful but was 301' when the target is controller-ish" do
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           @target.status = 301
           
           lambda { @target.should be_missing }.
@@ -381,8 +381,8 @@ module Merb::Test::Rspec
         end
         
         it "should be 'expected Foo#bar not to be missing but it was 404' when the target is controller-ish" do
-          @target.stub!(:controller_name).and_return :Foo
-          @target.stub!(:action_name).and_return :bar
+          @target.stub(:controller_name).and_return :Foo
+          @target.stub(:action_name).and_return :bar
           @target.status = 404
           
           lambda { @target.should_not be_missing }.
@@ -398,21 +398,21 @@ module Merb::Test::Rspec
       end
 
       it 'should match for formats a controller class provides' do
-        Provide.new( :xml ).matches?( TestController ).should be_true
+        Provide.new( :xml ).matches?( TestController ).should be_truthy
       end
 
       it 'should match for formats a controller instance provides' do
         t = TestController.new( fake_request )
-        Provide.new( :xml ).matches?( t ).should be_true
+        Provide.new( :xml ).matches?( t ).should be_truthy
       end
 
       it 'should not match for formats a controller class does not provide' do
-        Provide.new( :yaml ).matches?( TestController ).should be_false
+        Provide.new( :yaml ).matches?( TestController ).should be_falsey
       end
 
       it 'should not match for formats a controller instance does not provide' do
         t = TestController.new( fake_request )
-        Provide.new( :yaml ).matches?( t ).should be_false
+        Provide.new( :yaml ).matches?( t ).should be_falsey
       end
     end
   end

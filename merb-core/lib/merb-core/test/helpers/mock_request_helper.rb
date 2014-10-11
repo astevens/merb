@@ -122,7 +122,7 @@ module Merb
       #
       # @example
       #   dispatch_to(MyController, :create, :name => 'Homer' ) do |controller|
-      #     controller.stub!(:current_user).and_return(@user)
+      #     controller.stub(:current_user).and_return(@user)
       #   end
       #
       # @see Merb::Test::RequestHelper#fake_request
@@ -170,7 +170,7 @@ module Merb
       #
       # @example
       #   dispatch_with_basic_authentication_to(MyController, :create, 'Fred', 'secret', :name => 'Homer' ) do |controller|
-      #     controller.stub!(:current_user).and_return(@user)
+      #     controller.stub(:current_user).and_return(@user)
       #   end
       #
       # @api public
@@ -243,7 +243,7 @@ module Merb
       #
       # @example
       #   request(path, { :name => 'Homer' }, { :request_method => "PUT" }) do |controller|
-      #     controller.stub!(:current_user).and_return(@user)
+      #     controller.stub(:current_user).and_return(@user)
       #   end
       #
       # @return [#status, #headers, #body] A somewhat controller-like duck

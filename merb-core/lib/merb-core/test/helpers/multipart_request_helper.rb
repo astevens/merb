@@ -100,7 +100,7 @@ module Merb::Test::MultipartRequestHelper
   #
   # @example
   #   dispatch_multipart_to(MyController, :create, :my_file => @a_file ) do |controller|
-  #     controller.stub!(:current_user).and_return(@user)
+  #     controller.stub(:current_user).and_return(@user)
   #   end
   #
   # @see Merb::Test::RequestHelper#dispatch_to

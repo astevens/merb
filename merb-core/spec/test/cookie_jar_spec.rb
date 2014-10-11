@@ -9,13 +9,13 @@ describe Merb::Test::Cookie do
 
     it "should return true for base domain" do
       %w[example.org example.org/ example.org/some/path].each do |url|
-        @cookie.valid?(URI("http://#{url}")).should be_true
+        @cookie.valid?(URI("http://#{url}")).should be_truthy
       end
     end
 
     it "should return true for subdomains" do
       %w[foo.example.org foo.example.org/ foo.example.org/some/path].each do |url|
-        @cookie.valid?(URI("http://#{url}")).should be_true
+        @cookie.valid?(URI("http://#{url}")).should be_truthy
       end
     end
   end

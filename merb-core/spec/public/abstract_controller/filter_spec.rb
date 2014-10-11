@@ -133,7 +133,7 @@ describe Merb::AbstractController, "should support before and after filters" do
   end
 
   it "should not propagate filter changes to child classes" do
-    pending "Need to decide on proper behaviour. See #1345" do
+    skip "Need to decide on proper behaviour. See #1345" do
       AbstractControllers::FilterChild3.before :postfact_filter
       dispatch_should_make_body("FilterChild3", "Propagate to child test", :propagate)
       dispatch_should_make_body("FilterChild3a", "Before test", :propagate)
@@ -141,6 +141,7 @@ describe Merb::AbstractController, "should support before and after filters" do
   end
 
   it "should not propagate filter changes to parent classes" do
+    AbstractControllers::FilterChild3.before :postfact_filter
     AbstractControllers::FilterChild3a.before :inherited_postfact_filter
     dispatch_should_make_body("FilterChild3", "Propagate to child test", :propagate)
     dispatch_should_make_body("FilterChild3a", "Propagate to parent test", :propagate)

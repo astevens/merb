@@ -95,7 +95,7 @@ describe "When generating URLs," do
     # This is broken :(
     # ---
     # it "should only use the second namespace" do
-    #   pending "This doesn't work for now"
+    #   skip "This doesn't work for now"
     #   Merb::Router.prepare do |r|
     #     r.namespace(:foo) do |f|
     #       r.namespace(:bar) do |b|

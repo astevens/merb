@@ -338,7 +338,7 @@ describe "When recognizing requests," do
   # ---
   # describe "a nested namespaced resource" do
   #   it "should match a get to /admin/superadmin/blogposts to the blogposts controller and index action and a nested namespace" do
-  #     pending "Awww crap, this is the single spec that instance_eval fails on"
+  #     skip "Awww crap, this is the single spec that instance_eval fails on"
   #     Merb::Router.prepare do
   #       namespace :admin do |admin|
   #         r.namespace :superadmin do |superadmin|

@@ -5,14 +5,14 @@ describe Merb::Config do
   it "should set Dispatcher.use_mutex to true by default" do
     lambda {
       startup_merb
-      Merb::Dispatcher.use_mutex.should be_true
+      Merb::Dispatcher.use_mutex.should be_truthy
     }
   end
 
   it "should set Dispatcher.use_mutex to value in config" do
     lambda {
       startup_merb({:use_mutex => false})
-      Merb::Dispatcher.use_mutex.should be_false
+      Merb::Dispatcher.use_mutex.should be_falsey
     }
   end
 end

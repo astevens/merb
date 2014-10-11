@@ -6,7 +6,7 @@ describe Merb::MemorySession, "container" do
 
   it "should always generate unique session" do
     # Fix session id generation
-    Merb::SessionMixin.stub!(:rand_uuid).and_return(1, 1, 2)
+    Merb::SessionMixin.stub(:rand_uuid).and_return(1, 1, 2)
 
     s1 = Merb::MemorySession.generate
     s1.store.store_session(s1.session_id, {:foo => 'bar'})
@@ -21,7 +21,7 @@ describe Merb::MemorySession, "container" do
 
   it "should raise exception if unable to generate unique ID" do
     # Fix session id generation
-    Merb::SessionMixin.stub!(:rand_uuid).and_return(1, 1)
+    Merb::SessionMixin.stub(:rand_uuid).and_return(1, 1)
 
     s1 = Merb::MemorySession.generate
     s1.store.store_session(s1.session_id, {:foo => 'bar'})

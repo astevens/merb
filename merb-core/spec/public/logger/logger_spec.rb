@@ -6,11 +6,11 @@ describe Merb do
   describe "Command Line Options" do
 
     it "should allow -l / --log_level to set the log_level" do
-      pending("How do we spec these?")
+      skip("How do we spec these?")
     end
 
     it "should allow -L / --log_file  to set the log_file" do
-      pending("How do we spec these?")
+      skip("How do we spec these?")
       # Run an instance of merb from the command line
       # using system and test if the file was created?
     end

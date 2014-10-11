@@ -33,7 +33,7 @@ describe "The BootLoader" do
   
   describe Merb::BootLoader::ChooseAdapter do
     it "should check if we're running irb and if so set irb as adapter" do
-      Merb.stub!(:running_irb?).and_return(true)
+      Merb.stub(:running_irb?).and_return(true)
       Merb::BootLoader::ChooseAdapter.run
       Merb::Config[:adapter].should eql 'irb'
     end

@@ -57,31 +57,31 @@ describe Merb::Test::Rspec::RouteMatchers do
     describe RouteToMatcher do
 
       it "should work with snake cased controllers" do
-        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "get").should be_true
+        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "get").should be_truthy
       end
 
       it "should work with camel cased controllers" do
-        RouteToMatcher.new(TestController, :get).matches?(:controller => "TestController", :action => "get").should be_true
+        RouteToMatcher.new(TestController, :get).matches?(:controller => "TestController", :action => "get").should be_truthy
       end
 
       it "should work with symbol or string controller name" do
-        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "get").should be_true
+        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "get").should be_truthy
         RouteToMatcher.new(TestController, :get).matches?(:controller => :test_controller, :action => :get)
       end
 
       it "should not pass if the controllers do not match" do
-        RouteToMatcher.new(TestController, :get).matches?(:controller => "other_controller", :action => "get").should be_false
+        RouteToMatcher.new(TestController, :get).matches?(:controller => "other_controller", :action => "get").should be_falsey
       end
 
       it "should not pass if the actions do not match" do
-        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "post").should be_false
+        RouteToMatcher.new(TestController, :get).matches?(:controller => "test_controller", :action => "post").should be_falsey
       end
 
       it "should not pass if the parameters do not the ParameterMatcher" do
         route_matcher = RouteToMatcher.new(TestController, :get)
         route_matcher.with(:id => "123")
 
-        route_matcher.matches?(:controller => "test_case", :action => "get", :id => "456").should be_false
+        route_matcher.matches?(:controller => "test_case", :action => "get", :id => "456").should be_falsey
       end
 
       describe "#with" do
@@ -93,7 +93,7 @@ describe Merb::Test::Rspec::RouteMatchers do
         end
 
         it "should work with an empty expectation" do
-          ParameterMatcher.new({}).matches?(:param => "abc").should be_false
+          ParameterMatcher.new({}).matches?(:param => "abc").should be_falsey
         end
       end
 
@@ -136,11 +136,11 @@ describe Merb::Test::Rspec::RouteMatchers do
 
     describe ParameterMatcher do
       it "should work with a Hash as the parameter argument" do
-        ParameterMatcher.new(:param => "abc").matches?(:param => "abc").should be_true
+        ParameterMatcher.new(:param => "abc").matches?(:param => "abc").should be_truthy
       end
 
       it "should work with an object as the parameter argument" do
-        ParameterMatcher.new(IDish.new(1234)).matches?(:id => 1234).should be_true
+        ParameterMatcher.new(IDish.new(1234)).matches?(:id => 1234).should be_truthy
       end
 
       describe "#failure_message" do

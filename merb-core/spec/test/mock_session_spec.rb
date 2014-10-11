@@ -153,7 +153,7 @@ describe Merb::Test::RequestHelper do
   end
 
   it "should use the most specific domain cookie" do
-    pending "Does not work with Rack's MockSession" do
+    skip "Does not work with Rack's MockSession" do
       visit("http://test.com/domain_set")
       visit("http://one.test.com/domain_set")
       visit("http://one.test.com/domain_get").should have_body("one.test.com")
@@ -161,7 +161,7 @@ describe Merb::Test::RequestHelper do
   end
 
   it "should keep the less specific domain cookie" do
-    pending "Does not work with Rack's MockSession" do
+    skip "Does not work with Rack's MockSession" do
       visit("http://www.example.com/domain_set").should be_successful
       visit("http://one.www.example.com/domain_set").should be_successful
       visit("http://www.example.com/domain_get").should have_body("www.example.com")

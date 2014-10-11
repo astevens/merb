@@ -138,12 +138,12 @@ describe Merb::Controller do
     it "should return true when basic authentication credentials have been supplied" do
       u, p = "Fred", "secret"
       response = dispatch_with_basic_authentication_to(MTFC::PassiveBasicAuthentication, :index, u, p)
-      response.basic_authentication.provided?.should be_true
+      response.basic_authentication.provided?.should be_truthy
     end
     
     it "should return false when basic authentication credentials have not been supplied" do
       response = dispatch_to(MTFC::PassiveBasicAuthentication, :index)
-      response.basic_authentication.provided?.should be_false
+      response.basic_authentication.provided?.should be_falsey
     end
   end
   
