@@ -4,7 +4,7 @@ describe "relative_date" do
   include Merb::Helpers::DateAndTime
 
   before :each do
-    Time.stub!(:now).and_return(Time.utc(2007, 6, 1, 11))
+    Time.stub(:now).and_return(Time.utc(2007, 6, 1, 11))
     @controller = RelativeDateSpecs.new(Merb::Request.new({}))
   end
 
@@ -40,7 +40,7 @@ describe "relative_date_span" do
   include Merb::Helpers::DateAndTime
 
   before :each do
-    Time.stub!(:now).and_return(Time.utc(2007, 6, 1, 11))
+    Time.stub(:now).and_return(Time.utc(2007, 6, 1, 11))
     @controller = RelativeDateSpanSpecs.new(Merb::Request.new({}))
   end
 
@@ -84,7 +84,7 @@ describe "relative_time_span" do
   include Merb::Helpers::DateAndTime
 
   before :each do
-    Time.stub!(:now).and_return(Time.utc(2007, 6, 1, 11))
+    Time.stub(:now).and_return(Time.utc(2007, 6, 1, 11))
   end
 
   # Time, Single Date
@@ -160,7 +160,7 @@ describe "time_lost_in_words" do
     time_lost_in_words(5.months.ago).should == "5 months"
   end
 
-  pending "ActiveSupport does not provide Float#years" do
+  skip "ActiveSupport does not provide Float#years" do
     it "Should do year" do
       time_lost_in_words(1.2.years.ago).should == "about 1 year"
     end
@@ -241,7 +241,7 @@ describe "Date" do
   end
 
   it "Should do to_time conversion to local time when param :local is given" do
-    pending("Needs to have the call to figure out the local time stubbed so this test will work no matter what your local TZ is.") do
+    skip("Needs to have the call to figure out the local time stubbed so this test will work no matter what your local TZ is.") do
       @date.to_time(:local).to_s.should == 'Fri Nov 02 00:00:00 -0500 2007'
     end
   end
